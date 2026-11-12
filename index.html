@@ -1,109 +1,173 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YOTA METRO SHOP</title>
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>YOTA METRO SHOP — магазин Metro Royale</title>
 <style>
-:root{--bg:#090b10;--panel:#121722;--panel2:#1a2230;--red:#ed343c;--muted:#9ba5b5;--line:#283244}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#35151b 0,transparent 34%),var(--bg);color:#f4f6fa;font:16px/1.5 Arial,sans-serif}
-.wrap{max-width:1080px;margin:auto;padding:22px}
-header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 24px}
-.logo{font-weight:900;letter-spacing:1.5px;font-size:20px}.logo span{color:var(--red)}
-.pill{border:1px solid var(--line);border-radius:99px;padding:8px 13px;color:#cbd3df;font-size:13px}
-.hero{border:1px solid #4a252b;border-radius:24px;padding:34px;background:linear-gradient(115deg,rgba(12,15,22,.97),rgba(57,17,24,.86)),repeating-linear-gradient(135deg,#1a202b 0 2px,#11151d 2px 5px);position:relative;overflow:hidden}
-.hero:after{content:"M";position:absolute;right:30px;top:-45px;font-size:260px;font-weight:900;color:#ffffff08;line-height:1}
-.kicker{color:#ff777d;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold}
-h1{font-size:clamp(34px,7vw,62px);line-height:1.02;margin:12px 0;max-width:650px}
-.hero p{color:#c0c7d2;max-width:540px}.cta{display:inline-block;background:var(--red);color:white;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:12px;margin-top:10px}
-h2{font-size:24px;margin:34px 0 15px}.tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
-button{font:inherit;cursor:pointer}.tab,.add,.secondary{border:1px solid var(--line);border-radius:11px;background:var(--panel);color:#e9edf4;padding:10px 14px}
-.tab.active{background:var(--red);border-color:var(--red)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:18px}
-.tag{color:#ff858a;font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
-.card h3{margin:7px 0;font-size:18px}.desc{color:var(--muted);font-size:13px;min-height:38px}
-.price{font-size:21px;font-weight:800;margin:15px 0}
-.add{width:100%;background:#242e3d}.add:hover,.secondary:hover{border-color:var(--red)}
-.cart{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
-.cart-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
-.total{display:flex;justify-content:space-between;font-weight:bold;font-size:20px;margin:16px 0}
-input,textarea{width:100%;background:#0c1119;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;margin:7px 0 12px}
-label{font-size:13px;color:#b7c0cd}
-.secondary{background:transparent}
-.note{font-size:12px;color:var(--muted);margin-top:12px}
-footer{color:#7f8999;text-align:center;padding:35px 0 12px;font-size:12px}
-.empty{color:var(--muted);font-size:14px}
-@media(max-width:600px){.wrap{padding:15px}.hero{padding:25px 20px}.hero:after{right:-15px;font-size:180px}}
+:root{--bg:#090b10;--panel:#121722;--panel2:#171e2a;--line:#293344;--red:#ef3944;--text:#f4f6fa;--muted:#a4afbf;--green:#6fd3a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% -5%,#48171d 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.55 Arial,Helvetica,sans-serif}
+a{color:inherit}.wrap{width:min(1080px,100% - 32px);margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}.brand-mark{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#ff515b,#8f121d);font-weight:1000;font-size:23px;box-shadow:0 8px 24px #ed343833}.brand-name{font-size:18px;font-weight:900;letter-spacing:1.2px}.brand-name span{color:#ff5962}.subbrand{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;font-weight:700}
+.header-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.button{border:1px solid var(--line);background:#171e2a;color:white;padding:10px 14px;border-radius:11px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;cursor:pointer}.button.primary{background:var(--red);border-color:var(--red)}.button:hover{filter:brightness(1.12)}
+.hero{position:relative;overflow:hidden;border:1px solid #56252c;border-radius:24px;padding:clamp(24px,5vw,48px);background:linear-gradient(112deg,#111720f5,#39131bf0),repeating-linear-gradient(135deg,#202733 0 2px,#121722 2px 5px)}
+.hero:after{content:"Y";position:absolute;right:4%;top:-70px;font-size:330px;line-height:1;font-weight:1000;color:#ffffff08;pointer-events:none}.hero-content{position:relative;z-index:1}.eyebrow{color:#ff858b;font-size:11px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase}.hero h1{font-size:clamp(37px,7vw,68px);line-height:.99;letter-spacing:-2px;margin:14px 0}.hero h1 span{color:#ff4e59}.hero p{max-width:570px;color:#c3cbd6;font-size:16px}.hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.owner-strip{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:17px 0 0;padding:15px 17px;border:1px solid var(--line);border-radius:16px;background:#10151e}.owner-left{display:flex;align-items:center;gap:12px}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#2b1820;border:1px solid #71313a;color:#ff7a81;font-weight:900}.muted{color:var(--muted)}.owner-name{font-weight:800}.owner-name small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+section{margin-top:34px}.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}.section-title h2{margin:0;font-size:24px}.section-title p{margin:0;color:var(--muted);font-size:13px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.filter{border:1px solid var(--line);border-radius:999px;background:var(--panel);color:#dce2eb;padding:9px 14px;cursor:pointer}.filter.active{background:var(--red);border-color:var(--red);color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.product{border:1px solid var(--line);border-radius:17px;background:linear-gradient(155deg,#19212e,#111620);padding:17px;display:flex;flex-direction:column;min-height:205px}.tag{color:#ff858b;text-transform:uppercase;font-size:10px;font-weight:900;letter-spacing:1.4px}.product h3{margin:7px 0;font-size:18px;line-height:1.25}.product p{margin:0;color:var(--muted);font-size:13px;flex:1}.price{font-size:21px;font-weight:900;margin:14px 0 11px}.price em{font-size:13px;color:var(--muted);font-style:normal;font-weight:500}.product .button{width:100%}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.info-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px}.info-card strong{display:block;margin:5px 0}.info-card p{margin:0;color:var(--muted);font-size:13px}
+.cart{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:19px}.cart-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.cart-row button{border:0;background:none;color:#ff858b;cursor:pointer}.cart-total{display:flex;justify-content:space-between;font-weight:900;font-size:20px;margin:15px 0}.field{display:block;width:100%;margin:7px 0 12px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#0b1018;color:white;font:inherit}.label{font-size:12px;color:#bdc6d2}.empty{color:var(--muted);font-size:13px;padding:8px 0}
+footer{margin:34px 0 0;border-top:1px solid var(--line);padding:23px 0 30px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal.open{display:flex}.modal-card{width:min(760px,100%);max-height:92vh;overflow:auto;background:#111722;border:1px solid #3a4658;border-radius:18px;padding:20px;box-shadow:0 25px 80px #0009}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.modal-head h2{margin:0;font-size:22px}.close{background:none;border:0;color:white;font-size:25px;cursor:pointer}.warning{background:#2a2020;border:1px solid #634047;border-radius:12px;padding:12px;color:#f0c5c8;font-size:12px;margin:14px 0}.admin-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin-form .wide{grid-column:1/-1}.admin-form label{font-size:12px;color:#bdc6d2}.admin-list{margin-top:18px}.admin-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding:11px 0}.admin-item small{display:block;color:var(--muted)}.admin-actions{display:flex;gap:6px;flex-wrap:wrap}.smallbtn{border:1px solid var(--line);background:#1b2533;color:white;padding:7px 9px;border-radius:8px;cursor:pointer}.smallbtn.danger{color:#ff858b}
+@media(max-width:600px){.wrap{width:min(100% - 22px,1080px)}header{align-items:flex-start}.brand-name{font-size:15px}.header-actions .button{padding:9px;font-size:12px}.hero:after{font-size:210px;right:-8%;top:-25px}.admin-form{grid-template-columns:1fr}.admin-form .wide{grid-column:auto}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div class="logo">YOTA <span>METRO</span> SHOP</div><div class="pill">METRO ROYALE • SHOP</div></header>
-<section class="hero">
-<div class="kicker">Твой Metro — твои правила</div>
-<h1>ВЫНОСИМ БЫСТРО.<br><span style="color:#ff5159">БЕЗ СУЕТЫ.</span></h1>
-<p>Валюта, оружие и наборы для Metro Royale. Выбирай товар, добавляй в корзину и отправляй заявку.</p>
-<a class="cta" href="#catalog">Открыть каталог ↓</a>
+<header>
+<a class="brand" href="#">
+  <span class="brand-mark">Y</span>
+  <span><span class="brand-name">YOTA <span>METRO</span> SHOP</span><span class="subbrand">METRO ROYALE MARKET</span></span>
+</a>
+<div class="header-actions">
+<a class="button" href="https://t.me/Yota_Metro" target="_blank" rel="noopener">✈ Связаться</a>
+<button class="button" id="admin-open">⚙ Панель владельца</button>
+</div>
+</header>
+
+<main>
+<section class="hero" style="margin-top:4px">
+<div class="hero-content">
+<div class="eyebrow">Официальный магазин Metro Royale</div>
+<h1>ВЫНОСИМ БЫСТРО.<br><span>БЕЗ СУЕТЫ.</span></h1>
+<p>Добро пожаловать в YOTA METRO SHOP. Выбирай нужные товары, добавляй их в корзину и отправляй заявку владельцу магазина.</p>
+<div class="hero-links">
+<a class="button primary" href="#catalog">Открыть каталог ↓</a>
+<a class="button" href="https://t.me/Yota_Metro" target="_blank" rel="noopener">Написать YOTA</a>
+</div>
+</div>
 </section>
 
-<h2 id="catalog">Каталог товаров</h2>
-<div class="tabs">
-<button class="tab active" data-filter="all">Все товары</button>
-<button class="tab" data-filter="currency">Валюта</button>
-<button class="tab" data-filter="weapons">Оружие</button>
-<button class="tab" data-filter="sets">Наборы</button>
-<button class="tab" data-filter="service">Услуги</button>
+<div class="owner-strip">
+<div class="owner-left"><div class="avatar">Y</div><div class="owner-name">YOTA <small>Владелец YOTA METRO SHOP</small></div></div>
+<a class="button primary" href="https://t.me/Yota_Metro" target="_blank" rel="noopener">@Yota_Metro · Связаться с владельцем</a>
 </div>
-<div class="grid" id="products"></div>
 
-<section class="cart">
-<h2 style="margin:0 0 12px">Корзина <span id="count" style="color:#ff777d">(0)</span></h2>
-<div id="cart-items"><div class="empty">Пока ничего не добавлено.</div></div>
-<div class="total"><span>Итого</span><span id="total">0 ₽</span></div>
-<label for="buyer">Твой Telegram (например, @username)</label>
-<input id="buyer" placeholder="@username">
-<label for="comment">Комментарий к заказу</label>
-<textarea id="comment" rows="2" placeholder="Что важно учесть?"></textarea>
-<button class="cta" id="order" style="border:0;cursor:pointer">Сформировать заявку</button>
-<p class="note">Демо-магазин: кнопка сформирует текст заказа. Оплата и передача товара согласуются отдельно в чате.</p>
-</section>
-<footer>YOTA METRO SHOP · Metro Royale fan shop</footer>
+<section id="catalog">
+<div class="section-title"><div><h2>Каталог товаров</h2><p>Выбери категорию и добавь товар в корзину</p></div><span class="muted" id="product-count">8 позиций</span></div>
+<div class="filters">
+<button class="filter active" data-filter="all">Все товары</button>
+<button class="filter" data-filter="currency">Валюта</button>
+<button class="filter" data-filter="weapons">Оружие</button>
+<button class="filter" data-filter="sets">Наборы</button>
+<button class="filter" data-filter="service">Услуги</button>
 </div>
+<div class="grid" id="product-grid"><article class="product"><div class="tag">Валюта</div><h3>Metro валюта — 6 000 000</h3><p>Пополнение игрового баланса.</p><div class="price">55 ₽</div><button class="button" onclick="addToCart(1)">＋ В корзину</button></article><article class="product"><div class="tag">Валюта</div><h3>Metro валюта — 10 000 000</h3><p>Крупный пакет метро-валюты.</p><div class="price">92 ₽</div><button class="button" onclick="addToCart(2)">＋ В корзину</button></article><article class="product"><div class="tag">Валюта</div><h3>Metro валюта — 40 000 000</h3><p>Большой пакет. Цена рассчитана пропорционально.</p><div class="price">367 ₽</div><button class="button" onclick="addToCart(3)">＋ В корзину</button></article><article class="product"><div class="tag">Оружие</div><h3>MK14</h3><p>Уточни наличие и цену у владельца.</p><div class="price">Цена уточняется<em> · по запросу</em></div><button class="button" onclick="addToCart(4)">＋ В корзину</button></article><article class="product"><div class="tag">Оружие</div><h3>MG3 VK</h3><p>Уточни наличие и цену у владельца.</p><div class="price">Цена уточняется<em> · по запросу</em></div><button class="button" onclick="addToCart(5)">＋ В корзину</button></article><article class="product"><div class="tag">Наборы</div><h3>MK14 + MG3 VK</h3><p>Комплект. Уточни наличие и цену.</p><div class="price">Цена уточняется<em> · по запросу</em></div><button class="button" onclick="addToCart(6)">＋ В корзину</button></article><article class="product"><div class="tag">Услуги</div><h3>Сопровождение — 10 минут</h3><p>Условия согласуются перед заказом.</p><div class="price">Цена уточняется<em> · по запросу</em></div><button class="button" onclick="addToCart(7)">＋ В корзину</button></article><article class="product"><div class="tag">Услуги</div><h3>Сопровождение — 25 минут</h3><p>Условия согласуются перед заказом.</p><div class="price">Цена уточняется<em> · по запросу</em></div><button class="button" onclick="addToCart(8)">＋ В корзину</button></article></div>
+</section>
+
+<section class="info-grid">
+<div class="info-card"><div class="tag">01 · Заказ</div><strong>Выбираешь товар</strong><p>Добавь нужные позиции в корзину и укажи свой Telegram.</p></div>
+<div class="info-card"><div class="tag">02 · Связь</div><strong>Заявка владельцу</strong><p>Сформируй текст заказа и отправь его в Telegram для согласования.</p></div>
+<div class="info-card"><div class="tag">03 · Поддержка</div><strong>На связи YOTA</strong><p>Вопросы по товарам и заказам: <a href="https://t.me/Yota_Metro" target="_blank" rel="noopener">@Yota_Metro</a>.</p></div>
+</section>
+
+<section>
+<div class="section-title"><div><h2>Твоя корзина</h2><p>Проверь заказ перед отправкой</p></div></div>
+<div class="cart">
+<div id="cart-items"><div class="empty">Корзина пока пустая.</div></div>
+<div class="cart-total"><span>Итого</span><span id="cart-total">0 ₽</span></div>
+<label class="label" for="buyer">Твой Telegram</label><input class="field" id="buyer" placeholder="@username">
+<label class="label" for="comment">Комментарий к заказу</label><input class="field" id="comment" placeholder="Например, удобное время для связи">
+<button class="button primary" id="send-order">✈ Сформировать заявку</button>
+</div>
+</section>
+</main>
+<footer><span>© YOTA METRO SHOP · Владелец: YOTA</span><span>Связь: <a href="https://t.me/Yota_Metro" target="_blank" rel="noopener">@Yota_Metro</a></span></footer>
+</div>
+
+<div class="modal open" id="admin-modal" role="dialog" aria-modal="true" aria-label="Панель владельца">
+<div class="modal-card">
+<div class="modal-head"><h2>⚙ Панель владельца</h2><button class="close" id="admin-close" aria-label="Закрыть">×</button></div>
+<div class="warning"><b>Важно:</b> это локальная панель для подготовки каталога. Изменения сохраняются в этом браузере. Чтобы новые цены увидели все покупатели, нажми «Скачать обновлённый сайт», затем замени файл <code>index.html</code> в своём GitHub-репозитории. GitHub Pages не имеет встроенной базы данных или безопасной авторизации.</div>
+<div class="admin-form">
+<div><label for="edit-name">Название товара</label><input class="field" id="edit-name" placeholder="Например, Metro валюта — 10 млн"></div>
+<div><label for="edit-category">Категория</label><select class="field" id="edit-category"><option value="currency">Валюта</option><option value="weapons">Оружие</option><option value="sets">Наборы</option><option value="service">Услуги</option></select></div>
+<div><label for="edit-price">Цена в рублях (оставь пустым, если уточняется)</label><input class="field" id="edit-price" type="number" min="0" step="1" placeholder="Например, 55"></div>
+<div><label for="edit-description">Описание</label><input class="field" id="edit-description" placeholder="Короткое описание товара"></div>
+<div class="wide" style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="button primary" id="save-product">Добавить товар</button>
+<button class="button" id="cancel-edit" type="button">Очистить форму</button>
+<button class="button" id="export-site" type="button">⬇ Скачать обновлённый сайт</button>
+</div>
+</div>
+<div class="admin-list"><h3 style="font-size:16px;margin:20px 0 5px">Товары в каталоге</h3><div id="admin-products"><div class="admin-item"><div><b>Metro валюта — 6 000 000</b><small>Валюта · 55 ₽</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(1)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(1)">Удалить</button></div></div><div class="admin-item"><div><b>Metro валюта — 10 000 000</b><small>Валюта · 92 ₽</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(2)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(2)">Удалить</button></div></div><div class="admin-item"><div><b>Metro валюта — 40 000 000</b><small>Валюта · 367 ₽</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(3)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(3)">Удалить</button></div></div><div class="admin-item"><div><b>MK14</b><small>Оружие · Цена уточняется</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(4)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(4)">Удалить</button></div></div><div class="admin-item"><div><b>MG3 VK</b><small>Оружие · Цена уточняется</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(5)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(5)">Удалить</button></div></div><div class="admin-item"><div><b>MK14 + MG3 VK</b><small>Наборы · Цена уточняется</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(6)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(6)">Удалить</button></div></div><div class="admin-item"><div><b>Сопровождение — 10 минут</b><small>Услуги · Цена уточняется</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(7)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(7)">Удалить</button></div></div><div class="admin-item"><div><b>Сопровождение — 25 минут</b><small>Услуги · Цена уточняется</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(8)">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(8)">Удалить</button></div></div></div></div>
+</div>
+</div>
+
+<script id="catalog-data" type="application/json">[{"id":1,"category":"currency","name":"Metro валюта — 6 000 000","description":"Пополнение игрового баланса.","price":55},{"id":2,"category":"currency","name":"Metro валюта — 10 000 000","description":"Крупный пакет метро-валюты.","price":92},{"id":3,"category":"currency","name":"Metro валюта — 40 000 000","description":"Большой пакет. Цена рассчитана пропорционально.","price":367},{"id":4,"category":"weapons","name":"MK14","description":"Уточни наличие и цену у владельца.","price":null},{"id":5,"category":"weapons","name":"MG3 VK","description":"Уточни наличие и цену у владельца.","price":null},{"id":6,"category":"sets","name":"MK14 + MG3 VK","description":"Комплект. Уточни наличие и цену.","price":null},{"id":7,"category":"service","name":"Сопровождение — 10 минут","description":"Условия согласуются перед заказом.","price":null},{"id":8,"category":"service","name":"Сопровождение — 25 минут","description":"Условия согласуются перед заказом.","price":null}]</script>
 <script>
-const products=[
-{id:1,cat:"currency",tag:"Валюта",name:"Metro валюта — 6 млн",desc:"Пополнение игрового баланса.",price:55},
-{id:2,cat:"currency",tag:"Валюта",name:"Metro валюта — 10 млн",desc:"Уточнение количества и условий в чате.",price:92},
-{id:3,cat:"weapons",tag:"Оружие",name:"MK14",desc:"Оружие для Metro Royale.",price:8},
-{id:4,cat:"weapons",tag:"Оружие",name:"MG3 VK",desc:"Оружие для Metro Royale.",price:5},
-{id:5,cat:"sets",tag:"Набор",name:"MK14 + MG3 VK",desc:"Комплект из двух позиций.",price:10},
-{id:6,cat:"sets",tag:"Набор",name:"Полный сет",desc:"Комплект по согласованию.",price:15},
-{id:7,cat:"service",tag:"Услуга",name:"Сопровождение — 10 минут",desc:"Время и детали согласуются перед заказом.",price:50},
-{id:8,cat:"service",tag:"Услуга",name:"Сопровождение — 25 минут",desc:"Время и детали согласуются перед заказом.",price:100}
-];
-let cart=[];
-const fmt=n=>n.toLocaleString("ru-RU")+" ₽";
-function renderProducts(filter="all"){
- document.getElementById("products").innerHTML=products.filter(p=>filter==="all"||p.cat===filter).map(p=>`
- <article class="card"><div class="tag">${p.tag}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${fmt(p.price)}</div><button class="add" onclick="add(${p.id})">＋ Добавить</button></article>`).join("");
+const labels={currency:"Валюта",weapons:"Оружие",sets:"Наборы",service:"Услуги"};
+const initial=JSON.parse(document.getElementById("catalog-data").textContent);
+let products=initial;
+try{const saved=localStorage.getItem("yotaMetroCatalog");if(saved)products=JSON.parse(saved)}catch(e){}
+let cart=[],editingId=null,currentFilter="all";
+const $=id=>document.getElementById(id);
+const money=n=>n===null||n===undefined||n===""?"Цена уточняется":Number(n).toLocaleString("ru-RU")+" ₽";
+function persist(){try{localStorage.setItem("yotaMetroCatalog",JSON.stringify(products))}catch(e){}}
+function renderProducts(){
+ const visible=products.filter(p=>currentFilter==="all"||p.category===currentFilter);
+ $("product-count").textContent=products.length+" позиций";
+ $("product-grid").innerHTML=visible.length?visible.map(p=>`<article class="product"><div class="tag">${labels[p.category]||"Товар"}</div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||"")}</p><div class="price">${money(p.price)}${p.price==null?'<em> · по запросу</em>':''}</div><button class="button" onclick="addToCart(${p.id})">＋ В корзину</button></article>`).join(""):'<div class="empty">В этой категории пока нет товаров.</div>';
 }
-function add(id){cart.push(products.find(p=>p.id===id));renderCart()}
-function removeAt(i){cart.splice(i,1);renderCart()}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function addToCart(id){const p=products.find(x=>x.id===id);if(p){cart.push({...p});renderCart()}}
+function removeCart(i){cart.splice(i,1);renderCart()}
 function renderCart(){
- document.getElementById("count").textContent=`(${cart.length})`;
- document.getElementById("cart-items").innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-row"><span>${p.name}</span><span>${fmt(p.price)} <button class="secondary" onclick="removeAt(${i})" aria-label="Удалить">×</button></span></div>`).join(""):'<div class="empty">Пока ничего не добавлено.</div>';
- document.getElementById("total").textContent=fmt(cart.reduce((s,p)=>s+p.price,0));
+ $("cart-items").innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-row"><span>${escapeHtml(p.name)}</span><span>${money(p.price)} <button onclick="removeCart(${i})">Убрать</button></span></div>`).join(""):'<div class="empty">Корзина пока пустая.</div>';
+ const priced=cart.reduce((s,p)=>s+(p.price==null?0:Number(p.price)),0),hasUnknown=cart.some(p=>p.price==null);
+ $("cart-total").textContent=(hasUnknown?"от ":"")+priced.toLocaleString("ru-RU")+" ₽"+(hasUnknown?" + товары с ценой по запросу":"");
 }
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderProducts(b.dataset.filter)}));
-document.getElementById("order").addEventListener("click",()=>{
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentFilter=b.dataset.filter;renderProducts()}));
+$("send-order").addEventListener("click",()=>{
  if(!cart.length){alert("Сначала добавь товар в корзину.");return}
- const user=document.getElementById("buyer").value.trim()||"не указан";
- const comment=document.getElementById("comment").value.trim()||"нет";
- const lines=cart.map(p=>`• ${p.name} — ${fmt(p.price)}`).join("\n");
- const msg=`Заявка YOTA METRO SHOP\n\n${lines}\n\nИтого: ${fmt(cart.reduce((s,p)=>s+p.price,0))}\nTelegram: ${user}\nКомментарий: ${comment}`;
- navigator.clipboard?.writeText(msg).then(()=>alert("Текст заявки скопирован! Отправь его продавцу в Telegram." )).catch(()=>prompt("Скопируй текст заявки:",msg));
+ const items=cart.map(p=>`• ${p.name} — ${money(p.price)}`).join("\n");
+ const total=$("cart-total").textContent;
+ const msg=`Заявка в YOTA METRO SHOP\n\n${items}\n\nИтого: ${total}\nTelegram: ${$("buyer").value.trim()||"не указан"}\nКомментарий: ${$("comment").value.trim()||"нет"}\n\nСвязь с владельцем: @Yota_Metro`;
+ const url="https://t.me/Yota_Metro";
+ try{navigator.clipboard.writeText(msg).then(()=>{alert("Текст заявки скопирован. Сейчас откроется Telegram — вставь сообщение в чат с @Yota_Metro.");window.open(url,"_blank","noopener")}).catch(()=>{prompt("Скопируй заявку и отправь владельцу @Yota_Metro:",msg)})}catch(e){prompt("Скопируй заявку и отправь владельцу @Yota_Metro:",msg)}
 });
-renderProducts();
+$("admin-open").addEventListener("click",()=>{$("admin-modal").classList.add("open");renderAdmin()});
+$("admin-close").addEventListener("click",()=> $("admin-modal").classList.remove("open"));
+$("admin-modal").addEventListener("click",e=>{if(e.target===$("admin-modal"))$("admin-modal").classList.remove("open")});
+function clearForm(){editingId=null;$("edit-name").value="";$("edit-price").value="";$("edit-description").value="";$("edit-category").value="currency";$("save-product").textContent="Добавить товар"}
+$("cancel-edit").addEventListener("click",clearForm);
+$("save-product").addEventListener("click",()=>{
+ const name=$("edit-name").value.trim();if(!name){alert("Введи название товара.");return}
+ const raw=$("edit-price").value.trim(),price=raw===""?null:Number(raw);
+ if(price!==null&&(!Number.isFinite(price)||price<0)){alert("Проверь цену.");return}
+ const item={id:editingId??Date.now(),category:$("edit-category").value,name,description:$("edit-description").value.trim(),price};
+ if(editingId!==null)products=products.map(p=>p.id===editingId?item:p);else products.push(item);
+ persist();clearForm();renderProducts();renderAdmin();
+});
+function editProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ editingId=id;$("edit-name").value=p.name;$("edit-price").value=p.price??"";$("edit-description").value=p.description||"";$("edit-category").value=p.category;$("save-product").textContent="Сохранить изменения";
+ document.querySelector(".modal-card").scrollTo({top:0,behavior:"smooth"});
+}
+function deleteProduct(id){if(!confirm("Удалить этот товар из каталога?"))return;products=products.filter(p=>p.id!==id);persist();renderProducts();renderAdmin();if(editingId===id)clearForm()}
+function renderAdmin(){
+ $("admin-products").innerHTML=products.map(p=>`<div class="admin-item"><div><b>${escapeHtml(p.name)}</b><small>${labels[p.category]||"Товар"} · ${money(p.price)}</small></div><div class="admin-actions"><button class="smallbtn" onclick="editProduct(${p.id})">Изменить</button><button class="smallbtn danger" onclick="deleteProduct(${p.id})">Удалить</button></div></div>`).join("")||'<div class="empty">Товаров пока нет.</div>';
+}
+$("export-site").addEventListener("click",()=>{
+ const clone=document.documentElement.cloneNode(true);
+ clone.querySelector("#catalog-data").textContent=JSON.stringify(products).replace(/</g,"\\u003c");
+ const content="<!doctype html>\n"+clone.outerHTML;
+ const blob=new Blob([content],{type:"text/html;charset=utf-8"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="index.html";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ alert("Готово! Загрузи скачанный index.html в свой GitHub-репозиторий вместо старого файла и зафиксируй изменения.");
+});
+renderProducts();renderCart();
 </script>
-</body>
-</html>
+</body></html>
