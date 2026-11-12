@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YOTA METRO SHOP</title>
+<style>
+:root{--bg:#090b10;--panel:#121722;--panel2:#1a2230;--red:#ed343c;--muted:#9ba5b5;--line:#283244}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#35151b 0,transparent 34%),var(--bg);color:#f4f6fa;font:16px/1.5 Arial,sans-serif}
+.wrap{max-width:1080px;margin:auto;padding:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 24px}
+.logo{font-weight:900;letter-spacing:1.5px;font-size:20px}.logo span{color:var(--red)}
+.pill{border:1px solid var(--line);border-radius:99px;padding:8px 13px;color:#cbd3df;font-size:13px}
+.hero{border:1px solid #4a252b;border-radius:24px;padding:34px;background:linear-gradient(115deg,rgba(12,15,22,.97),rgba(57,17,24,.86)),repeating-linear-gradient(135deg,#1a202b 0 2px,#11151d 2px 5px);position:relative;overflow:hidden}
+.hero:after{content:"M";position:absolute;right:30px;top:-45px;font-size:260px;font-weight:900;color:#ffffff08;line-height:1}
+.kicker{color:#ff777d;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(34px,7vw,62px);line-height:1.02;margin:12px 0;max-width:650px}
+.hero p{color:#c0c7d2;max-width:540px}.cta{display:inline-block;background:var(--red);color:white;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:12px;margin-top:10px}
+h2{font-size:24px;margin:34px 0 15px}.tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+button{font:inherit;cursor:pointer}.tab,.add,.secondary{border:1px solid var(--line);border-radius:11px;background:var(--panel);color:#e9edf4;padding:10px 14px}
+.tab.active{background:var(--red);border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:18px}
+.tag{color:#ff858a;font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.card h3{margin:7px 0;font-size:18px}.desc{color:var(--muted);font-size:13px;min-height:38px}
+.price{font-size:21px;font-weight:800;margin:15px 0}
+.add{width:100%;background:#242e3d}.add:hover,.secondary:hover{border-color:var(--red)}
+.cart{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.cart-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.total{display:flex;justify-content:space-between;font-weight:bold;font-size:20px;margin:16px 0}
+input,textarea{width:100%;background:#0c1119;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;margin:7px 0 12px}
+label{font-size:13px;color:#b7c0cd}
+.secondary{background:transparent}
+.note{font-size:12px;color:var(--muted);margin-top:12px}
+footer{color:#7f8999;text-align:center;padding:35px 0 12px;font-size:12px}
+.empty{color:var(--muted);font-size:14px}
+@media(max-width:600px){.wrap{padding:15px}.hero{padding:25px 20px}.hero:after{right:-15px;font-size:180px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="logo">YOTA <span>METRO</span> SHOP</div><div class="pill">METRO ROYALE • SHOP</div></header>
+<section class="hero">
+<div class="kicker">Твой Metro — твои правила</div>
+<h1>ВЫНОСИМ БЫСТРО.<br><span style="color:#ff5159">БЕЗ СУЕТЫ.</span></h1>
+<p>Валюта, оружие и наборы для Metro Royale. Выбирай товар, добавляй в корзину и отправляй заявку.</p>
+<a class="cta" href="#catalog">Открыть каталог ↓</a>
+</section>
+
+<h2 id="catalog">Каталог товаров</h2>
+<div class="tabs">
+<button class="tab active" data-filter="all">Все товары</button>
+<button class="tab" data-filter="currency">Валюта</button>
+<button class="tab" data-filter="weapons">Оружие</button>
+<button class="tab" data-filter="sets">Наборы</button>
+<button class="tab" data-filter="service">Услуги</button>
+</div>
+<div class="grid" id="products"></div>
+
+<section class="cart">
+<h2 style="margin:0 0 12px">Корзина <span id="count" style="color:#ff777d">(0)</span></h2>
+<div id="cart-items"><div class="empty">Пока ничего не добавлено.</div></div>
+<div class="total"><span>Итого</span><span id="total">0 ₽</span></div>
+<label for="buyer">Твой Telegram (например, @username)</label>
+<input id="buyer" placeholder="@username">
+<label for="comment">Комментарий к заказу</label>
+<textarea id="comment" rows="2" placeholder="Что важно учесть?"></textarea>
+<button class="cta" id="order" style="border:0;cursor:pointer">Сформировать заявку</button>
+<p class="note">Демо-магазин: кнопка сформирует текст заказа. Оплата и передача товара согласуются отдельно в чате.</p>
+</section>
+<footer>YOTA METRO SHOP · Metro Royale fan shop</footer>
+</div>
+<script>
+const products=[
+{id:1,cat:"currency",tag:"Валюта",name:"Metro валюта — 6 млн",desc:"Пополнение игрового баланса.",price:55},
+{id:2,cat:"currency",tag:"Валюта",name:"Metro валюта — 10 млн",desc:"Уточнение количества и условий в чате.",price:92},
+{id:3,cat:"weapons",tag:"Оружие",name:"MK14",desc:"Оружие для Metro Royale.",price:8},
+{id:4,cat:"weapons",tag:"Оружие",name:"MG3 VK",desc:"Оружие для Metro Royale.",price:5},
+{id:5,cat:"sets",tag:"Набор",name:"MK14 + MG3 VK",desc:"Комплект из двух позиций.",price:10},
+{id:6,cat:"sets",tag:"Набор",name:"Полный сет",desc:"Комплект по согласованию.",price:15},
+{id:7,cat:"service",tag:"Услуга",name:"Сопровождение — 10 минут",desc:"Время и детали согласуются перед заказом.",price:50},
+{id:8,cat:"service",tag:"Услуга",name:"Сопровождение — 25 минут",desc:"Время и детали согласуются перед заказом.",price:100}
+];
+let cart=[];
+const fmt=n=>n.toLocaleString("ru-RU")+" ₽";
+function renderProducts(filter="all"){
+ document.getElementById("products").innerHTML=products.filter(p=>filter==="all"||p.cat===filter).map(p=>`
+ <article class="card"><div class="tag">${p.tag}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${fmt(p.price)}</div><button class="add" onclick="add(${p.id})">＋ Добавить</button></article>`).join("");
+}
+function add(id){cart.push(products.find(p=>p.id===id));renderCart()}
+function removeAt(i){cart.splice(i,1);renderCart()}
+function renderCart(){
+ document.getElementById("count").textContent=`(${cart.length})`;
+ document.getElementById("cart-items").innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-row"><span>${p.name}</span><span>${fmt(p.price)} <button class="secondary" onclick="removeAt(${i})" aria-label="Удалить">×</button></span></div>`).join(""):'<div class="empty">Пока ничего не добавлено.</div>';
+ document.getElementById("total").textContent=fmt(cart.reduce((s,p)=>s+p.price,0));
+}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderProducts(b.dataset.filter)}));
+document.getElementById("order").addEventListener("click",()=>{
+ if(!cart.length){alert("Сначала добавь товар в корзину.");return}
+ const user=document.getElementById("buyer").value.trim()||"не указан";
+ const comment=document.getElementById("comment").value.trim()||"нет";
+ const lines=cart.map(p=>`• ${p.name} — ${fmt(p.price)}`).join("\n");
+ const msg=`Заявка YOTA METRO SHOP\n\n${lines}\n\nИтого: ${fmt(cart.reduce((s,p)=>s+p.price,0))}\nTelegram: ${user}\nКомментарий: ${comment}`;
+ navigator.clipboard?.writeText(msg).then(()=>alert("Текст заявки скопирован! Отправь его продавцу в Telegram." )).catch(()=>prompt("Скопируй текст заявки:",msg));
+});
+renderProducts();
+</script>
+</body>
+</html>
