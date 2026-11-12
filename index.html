@@ -124,9 +124,9 @@ let products=initial;
 try{const saved=localStorage.getItem("yotaMetroCatalog");if(saved)products=JSON.parse(saved)}catch(e){}
 let cart=[],editingId=null,currentFilter="all";
 const $=id=>document.getElementById(id);
-// ВРЕМЕННЫЙ пароль для интерфейса. Замени его перед публикацией.
+// Пароль входа в интерфейс администратора.
 // Важно: пароль в статическом GitHub Pages нельзя считать настоящей защитой.
-const ADMIN_PASSWORD="CHANGE_THIS_PASSWORD";
+const ADMIN_PASSWORD="Killer9000";
 let adminUnlocked=false;
 $("admin-login-submit").addEventListener("click",()=>{
  const login=$("admin-login-name").value.trim();
